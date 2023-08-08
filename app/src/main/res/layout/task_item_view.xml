@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tool="http://schemas.android.com/tools"
     android:background="@color/white"
+    android:layout_marginBottom="@dimen/_12sdp"
     app:cardElevation="4dp"
     app:cardCornerRadius="8dp">
 
@@ -20,10 +21,9 @@
             android:layout_height="wrap_content"
             tool:text="This is an task"
             android:paddingStart="8dp"
-            android:textSize="@dimen/_14ssp"
+            android:textSize="@dimen/_12ssp"
             android:textColor="@color/textColor"
             android:buttonTint="@color/primaryColor"
-            android:button="@drawable/checkbox"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
