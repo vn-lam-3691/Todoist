@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_12sdp"
-        android:textSize="@dimen/_18ssp"
+        android:textSize="@dimen/_15ssp"
         android:textColor="@color/primaryColor"
         android:text="@string/btnNewTask"
         android:textAllCaps="false"
