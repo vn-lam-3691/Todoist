@@ -17,7 +17,7 @@
 
         <CheckBox
             android:id="@+id/task_checkbox"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tool:text="This is an task"
             android:paddingStart="8dp"

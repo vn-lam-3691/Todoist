@@ -32,6 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/_12ssp"
+        android:text="@string/sub_title_app"
         android:textColor="@color/secondTextColor"
         android:layout_marginTop="@dimen/_24sdp"
         app:layout_constraintTop_toTopOf="@id/title_app"

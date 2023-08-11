@@ -98,10 +98,12 @@ public class AddNewTask extends BottomSheetDialogFragment {
                     db.updateTask(bundle.getInt("id"), taskContent);
                 }
                 else {
-                    ToDoModel item = new ToDoModel();
-                    item.setTaskContent(taskContent);
-                    item.setStatus(0);
-                    db.insertTask(item);
+                    if (!taskContent.equals("")) {
+                        ToDoModel item = new ToDoModel();
+                        item.setTaskContent(taskContent);
+                        item.setStatus(0);
+                        db.insertTask(item);
+                    }
                 }
                 dismiss();
             }

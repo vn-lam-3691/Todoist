@@ -1,4 +1,7 @@
 package com.vanlam.todoist.Adapter;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.vanlam.todoist.AddNewTask;
@@ -50,9 +54,13 @@ public class ToDoAdapter extends RecyclerView.Adapter<TaskItemView> {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
                     db.updateStatus(item.getId(), 1);
+                    holder.getCheckTask().setTextColor(Color.GRAY);
+                    holder.getCheckTask().setPaintFlags(holder.getCheckTask().getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                 }
                 else {
                     db.updateStatus(item.getId(), 0);
+                    holder.getCheckTask().setTextColor(ContextCompat.getColor(getContext(), R.color.textColor));
+                    holder.getCheckTask().setPaintFlags(holder.getCheckTask().getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
                 }
             }
         });
@@ -67,6 +75,17 @@ public class ToDoAdapter extends RecyclerView.Adapter<TaskItemView> {
         AddNewTask fragment = new AddNewTask();
         fragment.setArguments(bundle);
         fragment.show(mainActivity.getSupportFragmentManager(), AddNewTask.TAG);
+    }
+
+    public void deleteItem(int position) {
+        ToDoModel item = taskList.get(position);
+        db.deleteTask(item.getId());
+        taskList.remove(position);
+        notifyItemRemoved(position);
+    }
+
+    public Context getContext() {
+        return mainActivity;
     }
 
     public boolean toBoolean(int n) {

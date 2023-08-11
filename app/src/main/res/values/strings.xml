@@ -2,12 +2,9 @@
     <string name="app_name">Todoist</string>
     <string name="title_app">Hello Brenda!</string>
 
-    <plurals name="sub_title_app">
-        <item quantity="zero">Today you have %d task</item>
-        <item quantity="one">Today you have %d task</item>
-        <item quantity="other">Today you have %d tasks</item>
-    </plurals>
+    <string name="sub_title_app">Have a nice day!</string>
 
     <string name="newTask_editText">New task...</string>
     <string name="btnNewTask">New Task</string>
+    <string name="cancel_text_dialog">Cancel</string>
 </resources>

@@ -2,6 +2,7 @@ package com.vanlam.todoist;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -46,9 +47,6 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
 
         toDoAdapter.setTaskList(taskList);
 
-        int taskCount = taskList.size();
-        subTitle.setText(getResources().getQuantityString(R.plurals.sub_title_app, taskCount, taskCount));
-
         taskList = db.getAllTaskList();
         Collections.reverse(taskList);
         toDoAdapter.setTaskList(taskList);
@@ -59,6 +57,9 @@ public class MainActivity extends AppCompatActivity implements DialogCloseListen
                 AddNewTask.newInstance().show(getSupportFragmentManager(), AddNewTask.TAG);
             }
         });
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new RecyclerItemTouchHelper(toDoAdapter));
+        itemTouchHelper.attachToRecyclerView(taskList_recyclerView);
     }
 
     @Override
